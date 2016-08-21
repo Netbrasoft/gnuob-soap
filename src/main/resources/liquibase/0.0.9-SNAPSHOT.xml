@@ -1,0 +1,2673 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_access">
+      <createTable tableName="gnuob_access">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="ACTIVE"
+            type="BIT(1)" />
+         <column
+            name="group_ID"
+            type="BIGINT(19)" />
+         <column
+            name="owner_ID"
+            type="BIGINT(19)" />
+         <column
+            name="permission_ID"
+            type="BIGINT(19)" />
+         <column
+            name="site_ID"
+            type="BIGINT(19)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_addresses">
+      <createTable tableName="gnuob_addresses">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="CITY_NAME"
+            type="VARCHAR(40)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="COMPLEMENT"
+            type="VARCHAR(40)" />
+         <column
+            name="COUNTRY"
+            type="VARCHAR(40)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="COUNTRY_NAME"
+            type="VARCHAR(40)" />
+         <column
+            name="DISTRICT"
+            type="VARCHAR(40)" />
+         <column
+            name="INTERNATIONAL_STATE_AND_CITY"
+            type="VARCHAR(80)" />
+         <column
+            name="INTERNATIONAL_STREET"
+            type="VARCHAR(40)" />
+         <column
+            name="NUMBER"
+            type="VARCHAR(10)" />
+         <column
+            name="PHONE"
+            type="VARCHAR(20)" />
+         <column
+            name="POSTAL_CODE"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="STATE_OR_PROVINCE"
+            type="VARCHAR(40)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="STREET1"
+            type="VARCHAR(100)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="STREET2"
+            type="VARCHAR(100)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_categories">
+      <createTable tableName="gnuob_categories">
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="POSITION"
+            type="INT(10)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_categories_gnuob_contents">
+      <createTable tableName="gnuob_categories_gnuob_contents">
+         <column
+            name="GNUOB_CATEGORIES_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="contents_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_categories_gnuob_sub_categories">
+      <createTable tableName="gnuob_categories_gnuob_sub_categories">
+         <column
+            name="GNUOB_CATEGORIES_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="subCategories_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_contents">
+      <createTable tableName="gnuob_contents">
+         <column
+            name="CONTENT"
+            type="MEDIUMBLOB">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="FORMAT"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="POSITION"
+            type="INT(10)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_contracts">
+      <createTable tableName="gnuob_contracts">
+         <column
+            name="CONTRACT_ID"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="customer_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_customers">
+      <createTable tableName="gnuob_customers">
+         <column
+            name="BUYER_EMAIL"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="BUYER_MARKETING_EMAIL"
+            type="VARCHAR(127)" />
+         <column
+            name="CONTACT_PHONE"
+            type="VARCHAR(20)" />
+         <column
+            name="DATE_OF_BIRTH"
+            type="DATE" />
+         <column
+            name="FIRST_NAME"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="FRIENDLY_NAME"
+            type="VARCHAR(128)" />
+         <column
+            name="LAST_NAME"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="MIDDLE_NAME"
+            type="VARCHAR(64)" />
+         <column
+            name="PAYER"
+            type="VARCHAR(127)" />
+         <column
+            name="PAYER_BUSINESS"
+            type="VARCHAR(127)" />
+         <column
+            name="PAYER_ID"
+            type="VARCHAR(20)" />
+         <column
+            name="PAYER_STATUS"
+            type="VARCHAR(20)" />
+         <column
+            name="SALUTATION"
+            type="VARCHAR(20)" />
+         <column
+            name="SUFFIX"
+            type="VARCHAR(20)" />
+         <column
+            name="TAX_ID"
+            type="VARCHAR(20)" />
+         <column
+            name="TAX_ID_TYPE"
+            type="VARCHAR(20)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="address_ID"
+            type="BIGINT(19)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_groups">
+      <createTable tableName="gnuob_groups">
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_invoices">
+      <createTable tableName="gnuob_invoices">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="INVOICE_ID"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="address_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_invoices_gnuob_payments">
+      <createTable tableName="gnuob_invoices_gnuob_payments">
+         <column
+            name="GNUOB_INVOICES_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="payments_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_offer_records">
+      <createTable tableName="gnuob_offer_records">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="DISCOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_HEIGHT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_HEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_LENGTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_LENGTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_URL"
+            type="VARCHAR(255)" />
+         <column
+            name="ITEM_WEIGHT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_WEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_WIDTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_WIDTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)" />
+         <column
+            name="OFFER_RECORD_ID"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="OPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="POSITION"
+            type="INT(10)" />
+         <column
+            name="PRODUCT_NUMBER"
+            type="VARCHAR(64)" />
+         <column
+            name="QUANTITY"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="SHIPPING_COST"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="TAX"
+            type="DECIMAL(19, 2)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_offers">
+      <createTable tableName="gnuob_offers">
+         <column
+            name="DISCOUNT_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="EXTRA_AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="HANDLING_TOTAL"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="INSURANCE_TOTAL"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ITEM_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="MAX_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="OFFER_DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="OFFER_ID"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="OFFER_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="SHIPPING_DISCOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="SHIPPING_TOTAL"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="TAX_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="contract_ID"
+            type="BIGINT(19)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_offers_gnuob_offer_records">
+      <createTable tableName="gnuob_offers_gnuob_offer_records">
+         <column
+            name="GNUOB_OFFERS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="records_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_offer_records_gnuob_options">
+      <createTable tableName="gnuob_offer_records_gnuob_options">
+         <column
+            name="GNUOB_OFFER_RECORDS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="options_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_products_gnuob_options">
+      <createTable tableName="gnuob_products_gnuob_options">
+         <column
+            name="GNUOB_PRODUCTS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="options_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_options_gnuob_sub_options">
+      <createTable tableName="gnuob_options_gnuob_sub_options">
+         <column
+            name="GNUOB_OPTIONS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="sub_options_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_options">
+      <createTable tableName="gnuob_options">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="VALUE"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DISABLED"
+            type="BIT(1)" />
+         <column
+            name="POSITION"
+            type="INT(10)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_order_records">
+      <createTable tableName="gnuob_order_records">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DELIVERY_DATE"
+            type="DATE" />
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="DISCOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_HEIGHT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_HEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_LENGTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_LENGTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_URL"
+            type="VARCHAR(255)" />
+         <column
+            name="ITEM_WEIGHT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_WEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_WIDTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_WIDTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)" />
+         <column
+            name="OPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="ORDER_RECORD_ID"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="POSITION"
+            type="INT(10)" />
+         <column
+            name="PRODUCT_NUMBER"
+            type="VARCHAR(64)" />
+         <column
+            name="QUANTITY"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="SHIPPING_COST"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="TAX"
+            type="DECIMAL(19, 2)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_orders">
+      <createTable tableName="gnuob_orders">
+         <column
+            name="BILLING_AGREEMENT_ID"
+            type="VARCHAR(20)" />
+         <column
+            name="CHECKOUT"
+            type="VARCHAR(15)" />
+         <column
+            name="CHECKOUT_STATUS"
+            type="VARCHAR(255)" />
+         <column
+            name="CUSTOM"
+            type="VARCHAR(255)" />
+         <column
+            name="DISCOUNT_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="EXTRA_AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="GIFT_MESSAGE"
+            type="VARCHAR(150)" />
+         <column
+            name="GIFT_MESSAGE_ENABLE"
+            type="BIT(1)" />
+         <column
+            name="GIFT_RECEIPT_ENABLE"
+            type="BIT(1)" />
+         <column
+            name="GIFT_WRAP_AMOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="GIFT_WRAP_ENABLE"
+            type="BIT(1)" />
+         <column
+            name="GIFT_WRAP_NAME"
+            type="VARCHAR(25)" />
+         <column
+            name="HANDLING_TOTAL"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="INSURANCE_OPTION_OFFERED"
+            type="BIT(1)" />
+         <column
+            name="INSURANCE_TOTAL"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ITEM_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="MAX_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="NOTE"
+            type="VARCHAR(165)" />
+         <column
+            name="NOTE_TEXT"
+            type="VARCHAR(255)" />
+         <column
+            name="ORDER_DATE"
+            type="DATE" />
+         <column
+            name="ORDER_DESCRIPTION"
+            type="VARCHAR(127)" />
+         <column
+            name="ORDER_ID"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ORDER_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="SHIPPING_DISCOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="SHIPPING_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="TAX_TOTAL"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="TOKEN"
+            type="VARCHAR(40)" />
+         <column
+            name="TRANSACTION_ID"
+            type="VARCHAR(64)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="contract_ID"
+            type="BIGINT(19)" />
+         <column
+            name="invoice_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="shipment_ID"
+            type="BIGINT(19)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_orders_gnuob_order_records">
+      <createTable tableName="gnuob_orders_gnuob_order_records">
+         <column
+            name="GNUOB_ORDERS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="records_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_order_records_gnuob_options">
+      <createTable tableName="gnuob_order_records_gnuob_options">
+         <column
+            name="GNUOB_ORDER_RECORDS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="options_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_payments">
+      <createTable tableName="gnuob_payments">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="EXCHANGE_RATE"
+            type="VARCHAR(17)" />
+         <column
+            name="FEE_AMOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="GROSS_AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="HOLD_DECISION"
+            type="VARCHAR(20)" />
+         <column
+            name="INSTALLMENT_COUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="PAYMENT_DATE"
+            type="date" />
+         <column
+            name="PAYMENT_REQUEST_ID"
+            type="VARCHAR(127)" />
+         <column
+            name="PAYMENT_STATUS"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="PAYMENT_TYPE"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="PENDING_REASON"
+            type="VARCHAR(20)" />
+         <column
+            name="POSITION"
+            type="INT(10)" />
+         <column
+            name="PROTECTION_ELIGIBILITY_TYPE"
+            type="VARCHAR(128)" />
+         <column
+            name="REASON_CODE"
+            type="VARCHAR(20)" />
+         <column
+            name="SETTLE_AMOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="STORE_ID"
+            type="VARCHAR(20)" />
+         <column
+            name="TAX_AMOUNT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="TERMINAL_ID"
+            type="VARCHAR(20)" />
+         <column
+            name="TRANSACTION_ID"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="TRANSACTION_TYPE"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_permissions">
+      <createTable tableName="gnuob_permissions">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="GROUP"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="OTHERS"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="OWNER"
+            type="VARCHAR(127)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_postal_codes">
+      <createTable tableName="gnuob_postal_codes">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="COUNTRY_CODE"
+            type="VARCHAR(2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="POSTAL_CODE"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="PLACE_NAME"
+            type="VARCHAR(180)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ADMIN_NAME_1"
+            type="VARCHAR(100)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ADMIN_CODE_1"
+            type="VARCHAR(20)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ADMIN_NAME_2"
+            type="VARCHAR(100)" />
+         <column
+            name="ADMIN_CODE_2"
+            type="VARCHAR(20)" />
+         <column
+            name="ADMIN_NAME_3"
+            type="VARCHAR(100)" />
+         <column
+            name="ADMIN_CODE_3"
+            type="VARCHAR(20)" />
+         <column
+            name="LATITUDE"
+            type="DECIMAL(19, 4)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="LONGITUDE"
+            type="DECIMAL(19, 4)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ACCURACY"
+            type="VARCHAR(100)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_products">
+      <createTable tableName="gnuob_products">
+         <column
+            name="AMOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="BESTSELLERS"
+            type="BIT(1)" />
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DISCOUNT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ITEM_HEIGHT"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_HEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_LENGTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_LENGTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_URL"
+            type="VARCHAR(255)" />
+         <column
+            name="ITEM_WEIGHT"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ITEM_WEIGHT_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="ITEM_WIDTH"
+            type="DECIMAL(19, 2)" />
+         <column
+            name="ITEM_WIDTH_UNIT"
+            type="VARCHAR(20)" />
+         <column
+            name="LATEST_COLLECTION"
+            type="BIT(1)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="NUMBER"
+            type="VARCHAR(64)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="RATING"
+            type="INT(10)" />
+         <column
+            name="RECOMMENDED"
+            type="BIT(1)" />
+         <column
+            name="SHIPPING_COST"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="TAX"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="stock_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_products_gnuob_contents">
+      <createTable tableName="gnuob_products_gnuob_contents">
+         <column
+            name="GNUOB_PRODUCTS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="contents_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_products_gnuob_sub_categories">
+      <createTable tableName="gnuob_products_gnuob_sub_categories">
+         <column
+            name="GNUOB_PRODUCTS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="subCategories_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_settings">
+      <createTable tableName="gnuob_settings">
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="PROPERTY"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="VALUE"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_shipments">
+      <createTable tableName="gnuob_shipments">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="SHIPMENT_TYPE"
+            type="VARCHAR(128)" />
+         <column
+            name="address_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_sites">
+      <createTable tableName="gnuob_sites">
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_stocks">
+      <createTable tableName="gnuob_stocks">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="MAX_QUANTITY"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="MIN_QUANTITY"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="QUANTITY"
+            type="DECIMAL(19, 2)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_sub_categories">
+      <createTable tableName="gnuob_sub_categories">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="POSITION"
+            type="INT(10)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_sub_categories_gnuob_contents">
+      <createTable tableName="gnuob_sub_categories_gnuob_contents">
+         <column
+            name="GNUOB_SUB_CATEGORIES_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="contents_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_sub_categories_gnuob_sub_categories">
+      <createTable tableName="gnuob_sub_categories_gnuob_sub_categories">
+         <column
+            name="GNUOB_SUB_CATEGORIES_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="subCategories_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_sub_options">
+      <createTable tableName="gnuob_sub_options">
+         <column
+            autoIncrement="true"
+            name="ID"
+            type="BIGINT(19)">
+            <constraints primaryKey="true" />
+         </column>
+         <column
+            name="CREATION"
+            type="datetime" />
+         <column
+            name="MODIFICATION"
+            type="datetime" />
+         <column
+            name="VERSION"
+            type="INT(10)" />
+         <column
+            name="VALUE"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DISABLED"
+            type="BIT(1)" />
+         <column
+            name="POSITION"
+            type="INT(10)" />
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_users">
+      <createTable tableName="gnuob_users">
+         <column
+            name="ACCESS"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="DESCRIPTION"
+            type="VARCHAR(128)" />
+         <column
+            name="NAME"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="PASSWORD"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ROOT"
+            type="BIT(1)" />
+         <column
+            name="ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_users_gnuob_groups">
+      <createTable tableName="gnuob_users_gnuob_groups">
+         <column
+            name="GNUOB_USERS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="groups_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_users_gnuob_sites">
+      <createTable tableName="gnuob_users_gnuob_sites">
+         <column
+            name="GNUOB_USERS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="sites_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Table gnuob_roles">
+      <createTable tableName="gnuob_roles">
+         <column
+            name="GNUOB_USERS_ID"
+            type="BIGINT(19)">
+            <constraints nullable="false" />
+         </column>
+         <column
+            name="ROLE"
+            type="VARCHAR(128)">
+            <constraints nullable="false" />
+         </column>
+      </createTable>
+      <comment></comment>
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_PROD_OPTI">
+      <addPrimaryKey
+         columnNames="GNUOB_PRODUCTS_ID, options_ID"
+         constraintName="PK_GNUOB_PROD_OPTI"
+         tableName="gnuob_products_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_OFRE_OPTI">
+      <addPrimaryKey
+         columnNames="GNUOB_OFFER_RECORDS_ID, options_ID"
+         constraintName="PK_GNUOB_OFRE_OPTI"
+         tableName="gnuob_offer_records_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_ORRE_OPTI">
+      <addPrimaryKey
+         columnNames="GNUOB_ORDER_RECORDS_ID, options_ID"
+         constraintName="PK_GNUOB_ORRE_OPTI"
+         tableName="gnuob_order_records_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_OPIO_SUOP">
+      <addPrimaryKey
+         columnNames="GNUOB_OPTIONS_ID, sub_options_ID"
+         constraintName="PK_GNUOB_OPIO_SUOP"
+         tableName="gnuob_options_gnuob_sub_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CATE">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_CATE"
+         tableName="gnuob_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CATE_CONT">
+      <addPrimaryKey
+         columnNames="GNUOB_CATEGORIES_ID, contents_ID"
+         constraintName="PK_GNUOB_CATE_CONT"
+         tableName="gnuob_categories_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CATE_SUCA">
+      <addPrimaryKey
+         columnNames="GNUOB_CATEGORIES_ID, subCategories_ID"
+         constraintName="PK_GNUOB_CATE_SUCA"
+         tableName="gnuob_categories_gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CONT">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_CONT"
+         tableName="gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CNTR">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_CNTR"
+         tableName="gnuob_contracts" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_CUST">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_CUST"
+         tableName="gnuob_customers" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_GROU">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_GROU"
+         tableName="gnuob_groups" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_INVO_PAYM">
+      <addPrimaryKey
+         columnNames="GNUOB_INVOICES_ID, payments_ID"
+         constraintName="PK_GNUOB_INVO_PAYM"
+         tableName="gnuob_invoices_gnuob_payments" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_OFFE">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_OFFE"
+         tableName="gnuob_offers" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_OFFE_OFRE">
+      <addPrimaryKey
+         columnNames="GNUOB_OFFERS_ID, records_ID"
+         constraintName="PK_GNUOB_OFFE_OFRE"
+         tableName="gnuob_offers_gnuob_offer_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_ORDE">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_ORDE"
+         tableName="gnuob_orders" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_ORDE_ORRE">
+      <addPrimaryKey
+         columnNames="GNUOB_ORDERS_ID, records_ID"
+         constraintName="PK_GNUOB_ORDE_ORRE"
+         tableName="gnuob_orders_gnuob_order_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_PROD">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_PROD"
+         tableName="gnuob_products" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_PROD_CONT">
+      <addPrimaryKey
+         columnNames="GNUOB_PRODUCTS_ID, contents_ID"
+         constraintName="PK_GNUOB_PROD_CONT"
+         tableName="gnuob_products_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_PROD_SUCA">
+      <addPrimaryKey
+         columnNames="GNUOB_PRODUCTS_ID, subCategories_ID"
+         constraintName="PK_GNUOB_PROD_SUCA"
+         tableName="gnuob_products_gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_SETT">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_SETT"
+         tableName="gnuob_settings" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_SITE">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_SITE"
+         tableName="gnuob_sites" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_SUCA_CONT">
+      <addPrimaryKey
+         columnNames="GNUOB_SUB_CATEGORIES_ID, contents_ID"
+         constraintName="PK_GNUOB_SUCA_CONT"
+         tableName="gnuob_sub_categories_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_SUCA_SUCA">
+      <addPrimaryKey
+         columnNames="GNUOB_SUB_CATEGORIES_ID, subCategories_ID"
+         constraintName="PK_GNUOB_SUCA_SUCA"
+         tableName="gnuob_sub_categories_gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_USER">
+      <addPrimaryKey
+         columnNames="ID"
+         constraintName="PK_GNUOB_USER"
+         tableName="gnuob_users" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_USER_GROU">
+      <addPrimaryKey
+         columnNames="GNUOB_USERS_ID, groups_ID"
+         constraintName="PK_GNUOB_USER_GROU"
+         tableName="gnuob_users_gnuob_groups" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_USER_SITE">
+      <addPrimaryKey
+         columnNames="GNUOB_USERS_ID, sites_ID"
+         constraintName="PK_GNUOB_USER_SITE"
+         tableName="gnuob_users_gnuob_sites" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Primary key PK_GNUOB_ROLE">
+      <addPrimaryKey
+         columnNames="GNUOB_USERS_ID, ROLE"
+         constraintName="PK_GNUOB_ROLE"
+         tableName="gnuob_roles" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_PROD_OPTI_OPTIONS_ID">
+      <addUniqueConstraint
+         columnNames="options_ID"
+         constraintName="UK_GNUOB_PROD_OPTI_OPTIONS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_products_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_OFRE_OPTI_OPTIONS_ID">
+      <addUniqueConstraint
+         columnNames="options_ID"
+         constraintName="UK_GNUOB_OFRE_OPTI_OPTIONS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_offer_records_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_ORRE_OPTI_OPTIONS_ID">
+      <addUniqueConstraint
+         columnNames="options_ID"
+         constraintName="UK_GNUOB_ORRE_OPTI_OPTIONS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_order_records_gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_OPTI_SUOP_SUB_OPTIONS_ID">
+      <addUniqueConstraint
+         columnNames="sub_options_ID"
+         constraintName="UK_GNUOB_OPTI_SUOP_SUB_OPTIONS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_options_gnuob_sub_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_OFFE_OFRE_RECORDS_ID">
+      <addUniqueConstraint
+         columnNames="records_ID"
+         constraintName="UK_GNUOB_OFFE_OFRE_RECORDS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_offers_gnuob_offer_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_ACCE_PERMISSION_ID">
+      <addUniqueConstraint
+         columnNames="permission_ID"
+         constraintName="UK_GNUOB_ACCE_PERMISSION_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_CATE_SUCA_SUBCATEGORIES_ID">
+      <addUniqueConstraint
+         columnNames="subCategories_ID"
+         constraintName="UK_GNUOB_CATE_SUCA_SUBCATEGORIES_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_categories_gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_PROD_CONT_CONTENTS_ID">
+      <addUniqueConstraint
+         columnNames="contents_ID"
+         constraintName="UK_GNUOB_PROD_CONT_CONTENTS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_products_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_INVO_ADDRESS_ID">
+      <addUniqueConstraint
+         columnNames="address_ID"
+         constraintName="UK_GNUOB_INVO_ADDRESS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_invoices" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_SUCA_CONT_CONTENTS_ID">
+      <addUniqueConstraint
+         columnNames="contents_ID"
+         constraintName="UK_GNUOB_SUCA_CONT_CONTENTS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_sub_categories_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_PROD_STOCK_ID">
+      <addUniqueConstraint
+         columnNames="stock_ID"
+         constraintName="UK_GNUOB_PROD_STOCK_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_products" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_INVO_PAYM_PAYMENTS_ID">
+      <addUniqueConstraint
+         columnNames="payments_ID"
+         constraintName="UK_GNUOB_INVO_PAYM_PAYMENTS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_invoices_gnuob_payments" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_CUST_ADDRESS_ID">
+      <addUniqueConstraint
+         columnNames="address_ID"
+         constraintName="UK_GNUOB_CUST_ADDRESS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_customers" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_SUCA_SUCA_SUBCATEGORIES_ID">
+      <addUniqueConstraint
+         columnNames="subCategories_ID"
+         constraintName="UK_GNUOB_SUCA_SUCA_SUBCATEGORIES_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_sub_categories_gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_SITE_NAME">
+      <addUniqueConstraint
+         columnNames="NAME"
+         constraintName="UK_GNUOB_SITE_NAME"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_sites" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_CATE_CONT_CONTENTS_ID">
+      <addUniqueConstraint
+         columnNames="contents_ID"
+         constraintName="UK_GNUOB_CATE_CONT_CONTENTS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_categories_gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_GROU_NAME">
+      <addUniqueConstraint
+         columnNames="NAME"
+         constraintName="UK_GNUOB_GROU_NAME"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_groups" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_ORDE_ORRE_RECORD_ID">
+      <addUniqueConstraint
+         columnNames="records_ID"
+         constraintName="UK_GNUOB_ORDE_ORRE_RECORD_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_orders_gnuob_order_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_ORDE_INVOICE_ID">
+      <addUniqueConstraint
+         columnNames="invoice_ID"
+         constraintName="UK_GNUOB_ORDE_INVOICE_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_orders" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_CONT_CUSTOMER_ID">
+      <addUniqueConstraint
+         columnNames="customer_ID"
+         constraintName="UK_GNUOB_CONT_CUSTOMER_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_contracts" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_SHIP_ADDRESS_ID">
+      <addUniqueConstraint
+         columnNames="address_ID"
+         constraintName="UK_GNUOB_SHIP_ADDRESS_ID"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_shipments" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Unique constraint UK_GNUOB_USER_NAME">
+      <addUniqueConstraint
+         columnNames="NAME"
+         constraintName="UK_GNUOB_USER_NAME"
+         deferrable="false"
+         disabled="false"
+         initiallyDeferred="false"
+         tableName="gnuob_users" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PROD_OPTI">
+      <addForeignKeyConstraint
+         baseColumnNames="options_ID"
+         baseTableName="gnuob_products_gnuob_options"
+         constraintName="FK_GNUOB_PROD_OPTI"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OPTI_PROD">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_PRODUCTS_ID"
+         baseTableName="gnuob_products_gnuob_options"
+         constraintName="FK_GNUOB_OPTI_PROD"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_products" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OFRE_OPTI">
+      <addForeignKeyConstraint
+         baseColumnNames="options_ID"
+         baseTableName="gnuob_offer_records_gnuob_options"
+         constraintName="FK_GNUOB_OFRE_OPTI"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OPTI_OFRE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_OFFER_RECORDS_ID"
+         baseTableName="gnuob_offer_records_gnuob_options"
+         constraintName="FK_GNUOB_OPTI_OFRE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_offer_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORRE_OPTI">
+      <addForeignKeyConstraint
+         baseColumnNames="options_ID"
+         baseTableName="gnuob_order_records_gnuob_options"
+         constraintName="FK_GNUOB_ORRE_OPTI"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OPTI_ORRE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_ORDER_RECORDS_ID"
+         baseTableName="gnuob_order_records_gnuob_options"
+         constraintName="FK_GNUOB_OPTI_ORRE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_order_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OPTI_SUOP">
+      <addForeignKeyConstraint
+         baseColumnNames="sub_options_ID"
+         baseTableName="gnuob_options_gnuob_sub_options"
+         constraintName="FK_GNUOB_OPTI_SUOP"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUOP_OPTI">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_OPTIONS_ID"
+         baseTableName="gnuob_options_gnuob_sub_options"
+         constraintName="FK_GNUOB_SUOP_OPTI"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_options" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CNTR_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_contracts"
+         constraintName="FK_GNUOB_CNTR_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PAYM_INVO">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_INVOICES_ID"
+         baseTableName="gnuob_invoices_gnuob_payments"
+         constraintName="FK_GNUOB_PAYM_INVO"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_invoices" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OFRE_OFFE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_OFFERS_ID"
+         baseTableName="gnuob_offers_gnuob_offer_records"
+         constraintName="FK_GNUOB_OFRE_OFFE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_offers" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OFFE_OFRE">
+      <addForeignKeyConstraint
+         baseColumnNames="records_ID"
+         baseTableName="gnuob_offers_gnuob_offer_records"
+         constraintName="FK_GNUOB_OFFE_OFRE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_offer_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ACCE_PERM">
+      <addForeignKeyConstraint
+         baseColumnNames="permission_ID"
+         baseTableName="gnuob_access"
+         constraintName="FK_GNUOB_ACCE_PERM"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_permissions" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_GROU_USER">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_USERS_ID"
+         baseTableName="gnuob_users_gnuob_groups"
+         constraintName="FK_GNUOB_GROU_USER"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_users" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CATE_SUCA">
+      <addForeignKeyConstraint
+         baseColumnNames="subCategories_ID"
+         baseTableName="gnuob_categories_gnuob_sub_categories"
+         constraintName="FK_GNUOB_CATE_SUCA"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ACCE_GROU">
+      <addForeignKeyConstraint
+         baseColumnNames="group_ID"
+         baseTableName="gnuob_access"
+         constraintName="FK_GNUOB_ACCE_GROU"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_groups" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PROD_SUCA">
+      <addForeignKeyConstraint
+         baseColumnNames="subCategories_ID"
+         baseTableName="gnuob_products_gnuob_sub_categories"
+         constraintName="FK_GNUOB_PROD_SUCA"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PROD_CONT">
+      <addForeignKeyConstraint
+         baseColumnNames="contents_ID"
+         baseTableName="gnuob_products_gnuob_contents"
+         constraintName="FK_GNUOB_PROD_CONT"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORRE_ORDE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_ORDERS_ID"
+         baseTableName="gnuob_orders_gnuob_order_records"
+         constraintName="FK_GNUOB_ORRE_ORDE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_orders" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CATE_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_categories"
+         constraintName="FK_GNUOB_CATE_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_INVO_ADDR">
+      <addForeignKeyConstraint
+         baseColumnNames="address_ID"
+         baseTableName="gnuob_invoices"
+         constraintName="FK_GNUOB_INVO_ADDR"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_addresses" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_USER_SITE">
+      <addForeignKeyConstraint
+         baseColumnNames="sites_ID"
+         baseTableName="gnuob_users_gnuob_sites"
+         constraintName="FK_GNUOB_USER_SITE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sites" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORDE_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_orders"
+         constraintName="FK_GNUOB_ORDE_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CONT_CATE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_CATEGORIES_ID"
+         baseTableName="gnuob_categories_gnuob_contents"
+         constraintName="FK_GNUOB_CONT_CATE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUCA_CONT">
+      <addForeignKeyConstraint
+         baseColumnNames="contents_ID"
+         baseTableName="gnuob_sub_categories_gnuob_contents"
+         constraintName="FK_GNUOB_SUCA_CONT"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORDE_CNTR">
+      <addForeignKeyConstraint
+         baseColumnNames="contract_ID"
+         baseTableName="gnuob_orders"
+         constraintName="FK_GNUOB_ORDE_CNTR"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_contracts" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PROD_STOC">
+      <addForeignKeyConstraint
+         baseColumnNames="stock_ID"
+         baseTableName="gnuob_products"
+         constraintName="FK_GNUOB_PROD_STOC"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_stocks" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUCA_SUCA_1">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_SUB_CATEGORIES_ID"
+         baseTableName="gnuob_sub_categories_gnuob_sub_categories"
+         constraintName="FK_GNUOB_SUCA_SUCA_1"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ACCE_USER">
+      <addForeignKeyConstraint
+         baseColumnNames="owner_ID"
+         baseTableName="gnuob_access"
+         constraintName="FK_GNUOB_ACCE_USER"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_users" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUCA_CATE">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_CATEGORIES_ID"
+         baseTableName="gnuob_categories_gnuob_sub_categories"
+         constraintName="FK_GNUOB_SUCA_CATE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OFFE_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_offers"
+         constraintName="FK_GNUOB_OFFE_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SITE_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_sites"
+         constraintName="FK_GNUOB_SITE_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORDE_SHIP">
+      <addForeignKeyConstraint
+         baseColumnNames="shipment_ID"
+         baseTableName="gnuob_orders"
+         constraintName="FK_GNUOB_ORDE_SHIP"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_shipments" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CONT_PROD">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_PRODUCTS_ID"
+         baseTableName="gnuob_products_gnuob_contents"
+         constraintName="FK_GNUOB_CONT_PROD"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_products" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SETT_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_settings"
+         constraintName="FK_GNUOB_SETT_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_INVO_PAYM">
+      <addForeignKeyConstraint
+         baseColumnNames="payments_ID"
+         baseTableName="gnuob_invoices_gnuob_payments"
+         constraintName="FK_GNUOB_INVO_PAYM"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_payments" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ACCE_SITE">
+      <addForeignKeyConstraint
+         baseColumnNames="site_ID"
+         baseTableName="gnuob_access"
+         constraintName="FK_GNUOB_ACCE_SITE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sites" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_PROD_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_products"
+         constraintName="FK_GNUOB_PROD_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_USER_GROU">
+      <addForeignKeyConstraint
+         baseColumnNames="groups_ID"
+         baseTableName="gnuob_users_gnuob_groups"
+         constraintName="FK_GNUOB_USER_GROU"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_groups" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CUST_ADDR">
+      <addForeignKeyConstraint
+         baseColumnNames="address_ID"
+         baseTableName="gnuob_customers"
+         constraintName="FK_GNUOB_CUST_ADDR"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_addresses" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CONT_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_contents"
+         constraintName="FK_GNUOB_CONT_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_USER_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_users"
+         constraintName="FK_GNUOB_USER_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUCA_SUCA_2">
+      <addForeignKeyConstraint
+         baseColumnNames="subCategories_ID"
+         baseTableName="gnuob_sub_categories_gnuob_sub_categories"
+         constraintName="FK_GNUOB_SUCA_SUCA_2"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SUCA_PROD">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_PRODUCTS_ID"
+         baseTableName="gnuob_products_gnuob_sub_categories"
+         constraintName="FK_GNUOB_SUCA_PROD"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_products" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_GROU_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_groups"
+         constraintName="FK_GNUOB_GROU_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CATE_CONT">
+      <addForeignKeyConstraint
+         baseColumnNames="contents_ID"
+         baseTableName="gnuob_categories_gnuob_contents"
+         constraintName="FK_GNUOB_CATE_CONT"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_contents" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SITE_USER">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_USERS_ID"
+         baseTableName="gnuob_users_gnuob_sites"
+         constraintName="FK_GNUOB_SITE_USER"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_users" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORDE_ORRE">
+      <addForeignKeyConstraint
+         baseColumnNames="records_ID"
+         baseTableName="gnuob_orders_gnuob_order_records"
+         constraintName="FK_GNUOB_ORDE_ORRE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_order_records" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_ORDE_INVO">
+      <addForeignKeyConstraint
+         baseColumnNames="invoice_ID"
+         baseTableName="gnuob_orders"
+         constraintName="FK_GNUOB_ORDE_INVO"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_invoices" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CUST_ACCE">
+      <addForeignKeyConstraint
+         baseColumnNames="ID"
+         baseTableName="gnuob_customers"
+         constraintName="FK_GNUOB_CUST_ACCE"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_access" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_OFFE_CNTR">
+      <addForeignKeyConstraint
+         baseColumnNames="contract_ID"
+         baseTableName="gnuob_offers"
+         constraintName="FK_GNUOB_OFFE_CNTR"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_contracts" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CNTR_CUST">
+      <addForeignKeyConstraint
+         baseColumnNames="customer_ID"
+         baseTableName="gnuob_contracts"
+         constraintName="FK_GNUOB_CNTR_CUST"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_customers" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_SHIP_ADDR">
+      <addForeignKeyConstraint
+         baseColumnNames="address_ID"
+         baseTableName="gnuob_shipments"
+         constraintName="FK_GNUOB_SHIP_ADDR"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_addresses" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="Foreign key constraint FK_GNUOB_CONT_SUCA">
+      <addForeignKeyConstraint
+         baseColumnNames="GNUOB_SUB_CATEGORIES_ID"
+         baseTableName="gnuob_sub_categories_gnuob_contents"
+         constraintName="FK_GNUOB_CONT_SUCA"
+         deferrable="false"
+         initiallyDeferred="false"
+         onDelete="NO ACTION"
+         onUpdate="NO ACTION"
+         referencedColumnNames="ID"
+         referencedTableName="gnuob_sub_categories" />
+   </changeSet>
+   <changeSet
+      author="Bernard Arjan Draaisma"
+      id="0.0.9-SNAPSHOT">
+      <tagDatabase tag="0.0.9-SNAPSHOT" />
+   </changeSet>
+</databaseChangeLog>

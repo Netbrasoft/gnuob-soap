@@ -1,9 +1,12 @@
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-	<include file="0.0.1-SNAPSHOT.xml" relativeToChangelogFile="true" />
-	<include file="0.0.2-SNAPSHOT.xml" relativeToChangelogFile="true" />
-	<include file="0.0.3-SNAPSHOT.xml" relativeToChangelogFile="true" />
-	<include file="test/test.xml" relativeToChangelogFile="true" />
-	<include file="amaristore/amaristore.xml" relativeToChangelogFile="true" />
-	<include file="black-falcon/black-falcon.xml" relativeToChangelogFile="true" />
-	<include file="ribelli/ribelli.xml" relativeToChangelogFile="true" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <include
+      file="0.0.9-SNAPSHOT.xml"
+      relativeToChangelogFile="true" />
+   <include
+      file="black-falcon/black-falcon.xml"
+      relativeToChangelogFile="true" />
 </databaseChangeLog>

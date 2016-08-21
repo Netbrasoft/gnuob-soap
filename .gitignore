@@ -5,3 +5,8 @@ pom.xml.next
 release.properties
 /target/
 /.apt_generated/
+.settings/
+.project
+.classpath
+.tern-project
+/.pmd
